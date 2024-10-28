@@ -3,13 +3,15 @@ Kotlin is a modern, statically typed programming language developed bye JetBrain
 
 ## Main function
 Main function is the entry point of any kotlin program.
+
 ```kotlin
 fun main(){
-    println("Hello World!!);
+    println("hello world")
+
 }
 
 ```
-# Variables
+## Variables
 
 A variable is a named storage location in memory that holds a value that can be used and manipulated throughout a program.
 There are two types of variable in kotlin:
@@ -100,3 +102,35 @@ val myString = "This is a String"
 
 println(myString::class)
 ```
+##Logical Operators
+Logical operators also uses Boolean datatypes 
+
+### Logical And (&&)
+
+```kotlin
+val trueAndtrue = true && true
+val trueAndfalse = true && false
+val falseAndfalse = false && false
+
+println(trueOrtrue)//true
+println(trueOrfalse)//true
+println(falseOrfalse)//false
+```
+### Logical Or (||)
+
+```kotlin
+val trueOrtrue = true || true
+val trueOrfalse = true || false
+val falseOrfalse = false || false
+
+println(trueAndtrue)//true
+println(trueAndfalse)//false
+println(falseAndfalse)//false
+```
+### Logical NOT (!)
+```kotlin
+val logicalNot = !true
+println(logicalNot)//false
+```
+
+
