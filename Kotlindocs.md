@@ -276,5 +276,114 @@ println(doubled) // Output: [2, 4, 6, 8, 10]
 ```
 Here, { it * 2 } is a lambda expression. The keyword it represents the single parameter passed to the lambda, which is each element in the numbers list.
 
+### Inline function
+### Extension function
+Lets you add new functionality to existing classes without modifying their source code or creating subclasses. This is particularly useful for adding utility functions to standard classes, like String or List, or even your custom classes.
+```kotlin
+fun String.addExclamation(): String {
+    return this + "!"
+}
 
+fun main() {
+    println("Hello".addExclamation()) // Output: Hello!
+}
+```
+**Use example :** 
+```kotlin
+class Car(val make: String, val model: String)
+
+// Extension function for Car class
+fun Car.getCarInfo(): String {
+    return "$make $model"
+}
+
+fun main() {
+    val car = Car("Toyota", "Corolla")
+    println(car.getCarInfo()) // Output: Toyota Corolla
+}
+```
 ## **Class** 
+**A blueprint that is used to create objects. Classes can have constructors, initializers, functions, etc.**
+_In this Kotlin code, we define a Dog class with some properties, an initializer block, and a function to simulate the dog's bark._
+_The init block is an initializer block that runs when an instance of the class is created._
+_Here, it calls the bark function with name as an argument, making the dog bark (i.e., print a message) immediately upon creation._
+
+```kotlin
+class Dog(val name: String, val breed: String?, val age: Int = 2){
+
+    init {
+        bark(name)
+    }
+
+    fun bark(name: String){
+        println("$name says woof woof")
+    }
+}
+
+fun useDogClass() {
+    var myDog = Dog(name = "Shadow", breed = "Retriever")//output is Shadow says woof woof bcs the init block of class callse bark()
+}
+```
+### Data Class
+
+Used for storing data, they have some default functions like .toString, .copy etc
+
+```kotlin
+data class Coffee(var coffeeSize: String = "M", var sugar: Int = 2, var withCream: Boolean = true)
+```
+# Advanced Kotlin
+## List
+**Immutable List (listOf)**
+An immutable list is a read-only list, meaning you cannot add, remove, or modify its elements once it’s created.You can access elements, check size, and perform read-only operations.
+```kotlin
+val immutableList = listOf("Apple", "Banana", "Cherry")
+println(immutableList) // Output: [Apple, Banana, Cherry]
+
+// Access elements
+println(immutableList[1]) // Output: Banana
+
+// Try to modify (not allowed)
+// immutableList.add("Date") // Error: Unresolved reference: add
+```
+**Mutable List(mutablelistof)**
+A mutable list allows modification, so you can add, remove, or update elements after creating it. Operations Allowed: All operations that modify the list, like adding, removing, or setting elements at specific indices..
+
+```kotlin
+val mutableList = mutableListOf("Dog", "Cat", "Bird")
+println(mutableList) // Output: [Dog, Cat, Bird]
+
+// Modify the list
+mutableList.add("Fish")
+mutableList.remove("Cat")
+mutableList[0] = "Horse"
+
+println(mutableList) // Output: [Horse, Bird, Fish]
+```
+
+**For loop in list**
+```kotlin
+fun forLoop(){
+    val mutableList = mutableListOf("Processor", "RAM", "Graphic Cards", "SSD", "HD")
+
+    for(item in mutableList){
+        println(item)
+    }
+
+    // Breaking loop
+
+    for(item in mutableList){
+        println(item)
+        if(item == "RAM"){
+
+            break
+        }
+    }
+
+    // using index in loop
+
+    for (item in 0 until mutableList.size){
+        println(item)
+        println(mutableList[item])
+    }
+}
+```
