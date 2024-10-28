@@ -133,4 +133,148 @@ val logicalNot = !true
 println(logicalNot)//false
 ```
 
+## Taking user input
+```kotlin
+println("Enter user entry : ")//Prompt the User for Input:
+val userEntryString = readln()
+//readln() reads the entire line of user input as a String. Since readln() only returns strings, the data type of userAgeString is String.
+val userEntryInt = userEntryString.toInt()//conveting string data type into int
+```
+## Conditional Statement
+### if else_if else
+```kotlin
+println("Enter marks:")
+val marksString = readln()
+val marksInt = marksString.toInt()
+if (marksInt > 50){
+    println("pass")
+}else if (marksInt > 50 && marksInt < 80){
+    println("You can perform better")
+}else{
+    println("Excellent")
+}
+```
+### while loop
+```kotlin
+var num = 0
+    while (num < 5){
+        println("While loop ran $num times")
+        num++
+    }
+```
+### Uppercase and lowercase conversion
+```kotlin
+println("Enter choice: ")
+var anything = readln()
+println(anything.uppercase())
+```
+## Functions
+_function name is written as **letTheFunctionName** in standard form_
 
+### 1.Basic function syntax
+To define a function in kotlin use the **fun** keyword followed by the function name, parameters, and body.
+```kotlin
+fun greet(){
+    println("Greetings")
+}
+fun main(){
+    greet() //prints Greeting
+}
+```
+### Function with parameters
+Passing parameters with function passing there type in bracket.
+Functions can have parameters with default values, which are used if no argument is provided.
+
+
+```kotlin
+
+fun greet(name : String = "Ad"){
+    println("Hello, $name!!")
+
+}
+fun main(){
+    greet()//Hello, Ad
+    greet("Aditi")//prints Hello, Aditi!!
+}
+```
+### Function with return type
+Specify the return type after the parameters, using a colon.
+```kotlin
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+
+fun main() {
+    val result = add(5, 3) // result is 8
+    println(result) // Output: 8
+}
+```
+### Single expression Functions
+Kotlin allows you to write functions with a single expression concisely, using = instead of {}.
+```kotlin
+fun multiply(a: Int, b: Int): Int = a * b
+
+fun main() {
+    println(multiply(4, 5)) // Output: 20
+}
+```
+### Named Arguments
+Can specify parameters by name when calling a function, making it easier to read and avoiding parameter order issues.
+```kotlin
+fun details(name: String, age: Int) {
+    println("Name: $name, Age: $age")
+}
+
+fun main() {
+    details(age = 21, name = "Aditi") // Output: Name: Aditi, Age: 21
+}
+```
+### Vararg parameters(Variable length Arguments)
+
+If you want to pass a variable number of arguments to a function, you can use the vararg keyword.
+```Kotlin
+fun displayNumbers(vararg numbers: Int) {
+    for (number in numbers) {
+        println(number)
+    }
+}
+
+fun main() {
+    displayNumbers(1, 2, 3, 4) // Output: 1 2 3 4 (each on a new line)
+}
+```
+
+###  Lambda Functions and Higher-Order Functions
+
+Kotlin functions can accept other functions as parameters or return them, known as higher-order functions. Lambda expressions are used to define functions concisely.
+A lambda function is an anonymous function, meaning it doesn’t have a name. Lambda functions are typically used as concise expressions that can be passed as arguments to other functions.
+**{ parameters -> body }** _defined within curly brackets_
+Can also be used like
+```kotlin
+val sum = { a: Int, b: Int -> a + b }
+println(sum(3, 4)) // Output: 7
+```
+
+**Or**
+
+```kotlin
+fun calculate(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+    return operation(a, b)
+}
+
+fun main() {
+    val sum = calculate(3, 5) { x, y -> x + y } // Using lambda for addition
+    println(sum) // Output: 8
+}
+```
+***Using lambda in higher order function**
+Higher-order functions are functions that take other functions as parameters or return them. Lambdas are often used in higher-order functions, such as Kotlin's map, filter, and forEach.
+```kotlin
+val numbers = listOf(1, 2, 3, 4, 5)
+val doubled = numbers.map { it * 2 } // Lambda that doubles each element
+println(doubled) // Output: [2, 4, 6, 8, 10]
+```
+Here, { it * 2 } is a lambda expression. The keyword it represents the single parameter passed to the lambda, which is each element in the numbers list.
+
+
+## **Class** 
