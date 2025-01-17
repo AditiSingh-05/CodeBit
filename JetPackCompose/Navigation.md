@@ -76,4 +76,4 @@ Each screen (like FirstScreen, SecondScreen, ThirdScreen) should have a function
 ## onClick Navigation
 ```kotlin
 onClick = { navController.navigate(AppScreens.NavigationScreen.route) }
-
+```
