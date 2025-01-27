@@ -199,6 +199,47 @@ fun HomeScreen(navController: NavController) {
 }
 ```
 
+
+```kotlin
+
+//Syntax 
+fun BasePage(pass parameters){
+    //define variables
+    fun onDrawerItemClick(){
+
+    }
+    ModalNavigationDrawer(
+        ModalDrawerSheet(
+            modifier
+        ){
+            Lazycolumns and items
+        }
+    ){
+        scaffold(
+            topbar
+        ){
+
+        }
+    }
+}
+
+fun DrawerOptions(
+    parameters
+){
+    content
+}
+
+
+//screen 
+fun screen(){
+    BasePage(
+        parameters of top bar
+    ){
+
+    }
+}
+```
+
 BasePage: This component handles the Drawer and TopAppBar. It also accepts a content composable function to provide the main screen content.
 HomeScreen: Inside HomeScreen, BasePage is called to display the structure, and the content parameter is used to define a Scaffold containing a BottomAppBar.
 The BottomAppBar has an Add button, which can be customized to perform specific actions when clicked.
