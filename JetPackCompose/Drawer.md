@@ -167,3 +167,39 @@ DrawerOption(
 - **Error Handling**: Ensure proper navigation handling to avoid crashes on invalid routes.
 - **Design**: Add icons, animations, or styling as needed for drawer options and top bar.
 
+## BasePage Implementation in HomeScreen With Bottom Bar etc
+
+```kotlin
+@Composable
+fun HomeScreen(navController: NavController) {
+    BasePage(
+        navController = navController,
+        title = "Home",
+        content = { 
+            Scaffold(
+                modifier = Modifier,
+                bottomBar = {
+                    BottomAppBar(
+                        actions = {
+                            IconButton(onClick = { /* Handle click for plus icon */ }) {
+                                Icon(Icons.Default.Add, contentDescription = "Add")
+                            }
+                        }
+                    )
+                }
+            ) {it ->
+                // Main content for the Home Screen goes here
+                Column(modifier = Modifier.padding(it)) {
+                    Text("Welcome to the Home Screen!")
+                    // Additional UI elements go here
+                }
+            }
+        }
+    )
+}
+```
+
+BasePage: This component handles the Drawer and TopAppBar. It also accepts a content composable function to provide the main screen content.
+HomeScreen: Inside HomeScreen, BasePage is called to display the structure, and the content parameter is used to define a Scaffold containing a BottomAppBar.
+The BottomAppBar has an Add button, which can be customized to perform specific actions when clicked.
+The main content inside the Scaffold can be customized further based on the screen's needs.
