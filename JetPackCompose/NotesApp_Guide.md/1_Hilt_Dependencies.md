@@ -67,7 +67,7 @@ android {
     defaultConfig {
         applicationId = "com.visionforgestudio.drinkup"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 34       //Check you compatible version
         versionCode = 1
         versionName = "1.0"
 
@@ -210,7 +210,7 @@ __@HiltAndroidApp__ is an annotation in Hilt that is used to set up dependency i
 
 class MainActivity : ComponentActivity() {
     @Inject                                                 
-    lateinit var userDataRepository: UserDataRepository
+    lateinit var userDataRepository: UserDataRepository  //Make sure that the userRepository has already been created else dont add yet.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -219,7 +219,7 @@ class MainActivity : ComponentActivity() {
             //Added 
             NotesTheme {
                 val navController = rememberNavController() // Remembering the navigation controller
-                NavGraph(navController)
+                NavGraph(navController)          //Make sure to set up navigation in before
             }
 
         }
